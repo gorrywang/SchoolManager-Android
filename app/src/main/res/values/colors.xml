@@ -10,4 +10,11 @@
     <!--bottom颜色-->
     <color name="bottom_fill">#3F51B5</color>
     <color name="bottom">#999999</color>
+    <!--随机颜色-->
+    <color name="s1">#e75a7d</color>
+    <color name="s2">#cc926c</color>
+    <color name="s3">#86ac83</color>
+    <color name="s4">#8f1d78</color>
+    <color name="s5">#efcee8</color>
+    <color name="s6">#ffe957</color>
 </resources>

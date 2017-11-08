@@ -145,10 +145,10 @@ public class IndexFragment extends Fragment {
                 //表白墙
                 mTxtLoveTitle.setText(userBeanList.get(0).getTitle());
                 mTxtLoveContent.setText(userBeanList.get(0).getContent());
+                // 开始刷新，设置当前为刷新状态
+                mRefresh.setRefreshing(false);
             }
         });
-        // 开始刷新，设置当前为刷新状态
-        mRefresh.setRefreshing(false);
     }
 
     /**
