@@ -12,9 +12,51 @@
         app:tabIndicatorColor="@color/colorPrimary"
         app:tabSelectedTextColor="@color/colorPrimary" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/frag_thr_pager_show"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/frag_thr_pager_show"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/fab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            app:menu_backgroundColor="#ccffffff"
+            app:menu_colorNormal="@color/colorAccent"
+            app:menu_colorPressed="#ccffffff"
+            app:menu_icon="@drawable/add"
+            app:menu_labels_ellipsize="end"
+            app:menu_labels_singleLine="true">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_bb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/like"
+                app:fab_colorNormal="@color/colorAccent"
+                app:menu_colorPressed="#ccffffff"
+                app:fab_label="匿名表白"
+                app:fab_size="mini" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_sw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/workbench"
+                app:fab_colorNormal="@color/colorAccent"
+                app:menu_colorPressed="#ccffffff"
+                app:fab_label="发布失物招领"
+                app:fab_size="mini" />
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+
+    </FrameLayout>
 </LinearLayout>

@@ -27,6 +27,7 @@ import com.loopj.android.http.TextHttpResponseHandler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,7 +49,7 @@ public class SwFragment extends BaseLazyFragment {
     Unbinder unbinder;
     private View mView;
     private List<SwBean> mList = new ArrayList<>();
-    private int[] mColorList = new int[]{R.color.colorPrimary};
+    private int[] mColorList = new int[]{R.color.colorPrimary, R.color.s1, R.color.s2, R.color.s3};
     private MyAdapter mAdapter;
 
     @Nullable
@@ -181,7 +182,7 @@ public class SwFragment extends BaseLazyFragment {
             } else {
                 helper.img.setVisibility(View.GONE);
             }
-            helper.cardView.setCardBackgroundColor(getResources().getColor(mColorList[0]));
+            helper.cardView.setCardBackgroundColor(getResources().getColor(mColorList[new Random().nextInt(3) + 0]));
         }
 
         class ViewHolder extends BaseViewHolder {

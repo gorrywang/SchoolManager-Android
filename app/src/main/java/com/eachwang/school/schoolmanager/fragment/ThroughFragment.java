@@ -10,14 +10,18 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.eachwang.school.schoolmanager.R;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -31,6 +35,12 @@ public class ThroughFragment extends Fragment {
     @BindView(R.id.frag_thr_pager_show)
     ViewPager mPager;
     Unbinder unbinder;
+    @BindView(R.id.fab_bb)
+    FloatingActionButton mFabBb;
+    @BindView(R.id.fab_sw)
+    FloatingActionButton mFabSw;
+    @BindView(R.id.fab)
+    FloatingActionMenu mFab;
     private View mView;
     private MyAdapter mAdapter;
     private List<Fragment> mList = new ArrayList<>();
@@ -76,6 +86,19 @@ public class ThroughFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @OnClick({R.id.fab_bb, R.id.fab_sw})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.fab_bb:
+                Toast.makeText(getContext(),"表白",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.fab_sw:
+                Toast.makeText(getContext(),"招领",Toast.LENGTH_SHORT).show();
+                break;
+        }
+        mFab.close(true);
     }
 
     /**
