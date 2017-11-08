@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SchoolManager</string>
+    <!--mainActivity-->
+    <string name="bottom_1">首页</string>
+    <string name="bottom_2">想法</string>
+    <string name="bottom_3">消息</string>
+    <string name="bottom_4">更多</string>
 </resources>
