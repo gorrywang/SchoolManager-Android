@@ -2,7 +2,6 @@ package com.eachwang.school.schoolmanager.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +27,6 @@ import com.loopj.android.http.TextHttpResponseHandler;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,7 +40,7 @@ import static com.eachwang.school.schoolmanager.http.HttpUtils.GET_SW_URL;
  * Created by iswgr on 2017/11/7.
  */
 
-public class SwFragment extends Fragment {
+public class SwFragment extends BaseLazyFragment {
     @BindView(R.id.frag_sw_recycler_load)
     RecyclerView mRecycler;
     @BindView(R.id.frag_sw_swipe_refresh)
@@ -62,14 +60,33 @@ public class SwFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected void initPrepare() {
+
+    }
+
+    @Override
+    protected void onInvisible() {
+
+    }
+
+    @Override
+    protected void initData() {
         //获取数据
         getData();
         //设置适配器
         setAdapter();
         //设置下拉刷新
         setRefresh();
+    }
+
+    @Override
+    protected View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return null;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 
     @Override
@@ -133,7 +150,7 @@ public class SwFragment extends Fragment {
      * 设置适配器
      */
     private void setAdapter() {
-        mAdapter = new MyAdapter(R.layout.item_message_load, mList);
+        mAdapter = new MyAdapter(R.layout.item_sw_load, mList);
         mAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -153,8 +170,7 @@ public class SwFragment extends Fragment {
 
         @Override
         protected void convert(MyAdapter.ViewHolder helper, SwBean item) {
-            Toast.makeText(getContext(),item.getTitle()+"a",Toast.LENGTH_SHORT).show();
-            helper.title.setText(item.getTitle());
+            helper.title.setText(item.getTitle()+"");
             helper.content.setText(item.getContent());
             helper.time.setText(item.getCreateTime());
             helper.name.setText(item.getStudentNum());

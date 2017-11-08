@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SchoolManager</string>
+    <string name="app_name">校园管理</string>
     <!--mainActivity-->
     <string name="bottom_1">首页</string>
     <string name="bottom_2">想法</string>

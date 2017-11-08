@@ -2,7 +2,6 @@ package com.eachwang.school.schoolmanager.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -41,7 +40,7 @@ import static com.eachwang.school.schoolmanager.http.HttpUtils.GET_LOVE_URL;
  * Created by iswgr on 2017/11/7.
  */
 
-public class LoveFragment extends Fragment {
+public class LoveFragment extends BaseLazyFragment {
     @BindView(R.id.frag_love_recycler_load)
     RecyclerView mRecycler;
     @BindView(R.id.frag_love_swipe_refresh)
@@ -61,14 +60,28 @@ public class LoveFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        //获取数据
-        getData();
+    protected void initPrepare() {
+
+    }
+
+    @Override
+    protected void onInvisible() {
+
+    }
+
+    @Override
+    protected void initData() {
         //设置适配器
         setAdapter();
+        //获取数据
+        getData();
         //设置下拉刷新
         setRefresh();
+    }
+
+    @Override
+    protected View initView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return null;
     }
 
     @Override
