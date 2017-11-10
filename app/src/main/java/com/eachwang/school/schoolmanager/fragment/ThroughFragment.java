@@ -1,5 +1,6 @@
 package com.eachwang.school.schoolmanager.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -10,9 +11,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.eachwang.school.schoolmanager.R;
+import com.eachwang.school.schoolmanager.ReleaseActivity;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
@@ -90,14 +91,16 @@ public class ThroughFragment extends Fragment {
 
     @OnClick({R.id.fab_bb, R.id.fab_sw})
     public void onViewClicked(View view) {
+        Intent intent = new Intent(getContext(), ReleaseActivity.class);
         switch (view.getId()) {
             case R.id.fab_bb:
-                Toast.makeText(getContext(),"表白",Toast.LENGTH_SHORT).show();
+                intent.putExtra("data", 1);
                 break;
             case R.id.fab_sw:
-                Toast.makeText(getContext(),"招领",Toast.LENGTH_SHORT).show();
+                intent.putExtra("data", 2);
                 break;
         }
+        getActivity().startActivity(intent);
         mFab.close(true);
     }
 

@@ -31,6 +31,16 @@ public abstract class HttpUtils {
     public static final String GET_LOVE_URL = URL + "getLove";
 
     /**
+     * 发布表白墙
+     */
+    public static final String REL_LOVE_URL = URL + "releaseLove";
+
+    /**
+     * 发布失物招领
+     */
+    public static final String REL_Sw_URL = URL + "releaseSw";
+
+    /**
      * 获取通知
      */
     public static final String GET_NOTICE_URL = URL + "getNotice";
