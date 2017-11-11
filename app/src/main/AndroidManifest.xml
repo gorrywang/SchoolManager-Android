@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".FirstRunActivity" />
-        <activity android:name=".ReleaseActivity"></activity>
+        <activity android:name=".ReleaseActivity" />
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>

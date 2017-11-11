@@ -1,24 +1,23 @@
 package com.eachwang.school.schoolmanager;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.eachwang.school.schoolmanager.bean.WeatherBean;
 import com.eachwang.school.schoolmanager.http.HttpUtils;
 import com.eachwang.school.schoolmanager.utils.Utils;
-import com.google.gson.Gson;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.TextHttpResponseHandler;
 
-import butterknife.BindInt;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.protocol.HTTP;
+
+import static com.eachwang.school.schoolmanager.utils.Utils.CONFIG_FILE_NAME;
 
 /**
  * 发布Activity
@@ -70,10 +69,15 @@ public class ReleaseActivity extends BaseActivity {
 
         RequestParams params = new RequestParams();
         String url = HttpUtils.REL_LOVE_URL;
-
+        SharedPreferences sharedPreferences = getSharedPreferences(CONFIG_FILE_NAME, MODE_PRIVATE);
+        String studentNum = sharedPreferences.getString("studentNum", null);
+        if (studentNum == null && "".equals(studentNum)) {
+            Toast.makeText(ReleaseActivity.this, "请返回登录", Toast.LENGTH_SHORT).show();
+            return;
+        }
         params.put("title", title);
         params.put("content", text);
-        params.put("studentNum", Utils.getParam(this, "student_num", "1234578901"));
+        params.put("studentNum", studentNum);
 
         if (data == 2) {
             String tel = mEditTell.getText().toString().trim();

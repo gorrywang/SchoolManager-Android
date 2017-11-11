@@ -51,6 +51,11 @@ public abstract class HttpUtils {
     public static final String GET_NEW_LOVE_AND_SW_URL = URL + "getNew";
 
     /**
+     * 登录
+     */
+    public static final String LOGIN_URL = URL + "login";
+
+    /**
      * Get请求返回Json数据
      */
     public static void getJsonByGetBack(String url, TextHttpResponseHandler handler) {
