@@ -9,6 +9,7 @@
         android:id="@+id/frag_thr_tab_page"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ffffff"
         app:tabIndicatorColor="@color/colorPrimary"
         app:tabSelectedTextColor="@color/colorPrimary" />
 
@@ -41,9 +42,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/like"
                 app:fab_colorNormal="@color/colorAccent"
-                app:menu_colorPressed="#ccffffff"
                 app:fab_label="匿名表白"
-                app:fab_size="mini" />
+                app:fab_size="mini"
+                app:menu_colorPressed="#ccffffff" />
 
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/fab_sw"
@@ -51,9 +52,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/workbench"
                 app:fab_colorNormal="@color/colorAccent"
-                app:menu_colorPressed="#ccffffff"
                 app:fab_label="发布失物招领"
-                app:fab_size="mini" />
+                app:fab_size="mini"
+                app:menu_colorPressed="#ccffffff" />
 
         </com.github.clans.fab.FloatingActionMenu>
 

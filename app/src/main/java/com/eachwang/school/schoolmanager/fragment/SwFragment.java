@@ -170,8 +170,9 @@ public class SwFragment extends BaseLazyFragment {
         }
 
         @Override
-        protected void convert(MyAdapter.ViewHolder helper, SwBean item) {
-            helper.title.setText(item.getTitle()+"");
+        protected void convert(final MyAdapter.ViewHolder helper, SwBean item) {
+
+            helper.title.setText(item.getTitle() + "");
             helper.content.setText(item.getContent());
             helper.time.setText(item.getCreateTime());
             helper.name.setText(item.getStudentNum());

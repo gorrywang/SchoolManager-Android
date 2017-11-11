@@ -17,6 +17,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.eachwang.school.schoolmanager.R;
 import com.eachwang.school.schoolmanager.bean.LoveBean;
 import com.eachwang.school.schoolmanager.http.HttpUtils;
+import com.eachwang.school.schoolmanager.view.FlowLikeView;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -49,6 +50,7 @@ public class LoveFragment extends BaseLazyFragment {
     private View mView;
     private List<LoveBean> mList = new ArrayList<>();
     private int[] mColorList = new int[]{R.color.colorPrimary, R.color.s1, R.color.s2, R.color.s3};
+    private String[] mNameList = new String[]{"爱不单", "美人如歌", "短发郁夏天", "请内心温暖", "暗似黛绿", "阳光的暖冬", "大妹子", "杨家千金", "我以为我们会到老i", "笑尽往事", "森很绿却致人迷途", "丸子头丶小招手", "木槿暧夏七纪年", "雨點落得太敷衍"};
     private MyAdapter mAdapter;
 
     @Nullable
@@ -164,24 +166,35 @@ public class LoveFragment extends BaseLazyFragment {
         }
 
         @Override
-        protected void convert(MyAdapter.ViewHolder helper, LoveBean item) {
+        protected void convert(final MyAdapter.ViewHolder helper, LoveBean item) {
+            helper.love.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    helper.flowLikeView.addLikeView();
+                }
+            });
             helper.title.setText(item.getTitle());
             helper.content.setText(item.getContent());
             helper.time.setText(item.getCreateTime());
+            helper.name.setText(mNameList[new Random().nextInt(13) + 0]);
             helper.cardView.setCardBackgroundColor(getResources().getColor(mColorList[new Random().nextInt(3) + 0]));
         }
 
         class ViewHolder extends BaseViewHolder {
 
-            TextView title, content, time;
+            TextView title, content, time, name, love;
             CardView cardView;
+            FlowLikeView flowLikeView;
 
             public ViewHolder(View view) {
                 super(view);
                 title = view.findViewById(R.id.item_message_txt_title);
+                name = view.findViewById(R.id.item_message_txt_name);
                 content = view.findViewById(R.id.item_message_txt_content);
                 time = view.findViewById(R.id.item_message_txt_date);
                 cardView = view.findViewById(R.id.item_message_card_show);
+                flowLikeView = view.findViewById(R.id.item_message_flow_flowLikeView);
+                love = view.findViewById(R.id.item_message_txt_flowLikeView);
             }
         }
     }

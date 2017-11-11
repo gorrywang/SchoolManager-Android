@@ -36,4 +36,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v2.9.2'
     compile 'com.github.clans:fab:1.6.4'
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.nineoldandroids:library:2.4.0'
 }

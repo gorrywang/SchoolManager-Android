@@ -18,6 +18,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.eachwang.school.schoolmanager.R;
 import com.eachwang.school.schoolmanager.bean.MessageBean;
 import com.eachwang.school.schoolmanager.http.HttpUtils;
+import com.eachwang.school.schoolmanager.view.FlowLikeView;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -150,7 +151,13 @@ public class MessageFragment extends Fragment {
         }
 
         @Override
-        protected void convert(ViewHolder helper, MessageBean item) {
+        protected void convert(final ViewHolder helper, MessageBean item) {
+            helper.love.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    helper.flowLikeView.addLikeView();
+                }
+            });
             helper.title.setText(item.getTitle());
             helper.content.setText(item.getContent());
             helper.time.setText(item.getCreateTime());
@@ -159,8 +166,8 @@ public class MessageFragment extends Fragment {
         }
 
         class ViewHolder extends BaseViewHolder {
-
-            TextView title, content, time, name;
+            FlowLikeView flowLikeView;
+            TextView title, content, time, name, love;
             CardView cardView;
 
             public ViewHolder(View view) {
@@ -170,6 +177,8 @@ public class MessageFragment extends Fragment {
                 time = view.findViewById(R.id.item_message_txt_date);
                 name = view.findViewById(R.id.item_message_txt_name);
                 cardView = view.findViewById(R.id.item_message_card_show);
+                flowLikeView = view.findViewById(R.id.item_message_flow_flowLikeView);
+                love = view.findViewById(R.id.item_message_txt_flowLikeView);
             }
         }
     }
