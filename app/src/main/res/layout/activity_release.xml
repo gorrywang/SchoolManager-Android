@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,73 +13,82 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            app:cardCornerRadius="8dp">
 
-            <EditText
-                android:id="@+id/ac_release_edit_title"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="#ffffff"
-                android:hint="请输入标题"
-                android:maxLength="15"
-                android:maxLines="1"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
-                android:singleLine="true" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/ac_release_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="#ffffff"
-                android:gravity="top"
-                android:hint="请输入内容"
-                android:maxLines="5"
-                android:minLines="4"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp" />
+                <EditText
+                    android:id="@+id/ac_release_edit_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#ffffff"
+                    android:hint="请输入标题"
+                    android:maxLength="15"
+                    android:maxLines="1"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:singleLine="true" />
 
-            <EditText
-                android:id="@+id/ac_release_edit_tell"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="#ffffff"
-                android:hint="请输入联系电话"
-                android:maxLines="1"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
-                android:phoneNumber="true"
-                android:singleLine="true" />
 
-            <EditText
-                android:id="@+id/ac_release_edit_address"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="#ffffff"
-                android:gravity="top"
-                android:hint="请输入联系地址"
-                android:maxLength="30"
-                android:maxLines="2"
-                android:minLines="2"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
-                android:singleLine="true" />
+                <EditText
+                    android:id="@+id/ac_release_edit_tell"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#ffffff"
+                    android:hint="请输入联系电话"
+                    android:maxLines="1"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:phoneNumber="true"
+                    android:singleLine="true" />
 
-            <Button
-                android:id="@+id/ac_release_btn_submit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="34dp"
-                android:text="确认发布" />
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/ac_release_edit_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#ffffff"
+                    android:gravity="top"
+                    android:hint="请输入联系地址"
+                    android:maxLength="30"
+                    android:maxLines="2"
+                    android:minLines="2"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:singleLine="true" />
+
+
+                <EditText
+                    android:id="@+id/ac_release_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="#ffffff"
+                    android:gravity="top"
+                    android:hint="请输入内容"
+                    android:maxLines="5"
+                    android:minLines="4"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp" />
+
+                <Button
+                    android:id="@+id/ac_release_btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
+                    android:text="确认发布" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </ScrollView>
 
 </LinearLayout>

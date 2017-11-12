@@ -46,8 +46,9 @@ public class ReleaseActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        startFinish();
         if (data == 1) {
-            setTitle("发布表白");
+            setTitle("发布匿名表白");
             mEditTell.setVisibility(View.GONE);
             mEditAddress.setVisibility(View.GONE);
         } else if (data == 2) {

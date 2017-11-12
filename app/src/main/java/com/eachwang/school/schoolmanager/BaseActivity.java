@@ -1,10 +1,12 @@
 package com.eachwang.school.schoolmanager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -62,6 +64,25 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return true;
+    }
+
+
+    /**
+     * 开启返回按钮
+     *
+     */
+    protected void startFinish() {
+        mActionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
     /**
      * 设置标题栏
      *
@@ -70,7 +91,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void setTitle(String title) {
         mActionBar.setTitle(title);
     }
-
 
     /**
      * 提示消息

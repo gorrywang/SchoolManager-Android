@@ -33,7 +33,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onBaseCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_login);
+        setContentViewId(R.layout.activity_login);
         ButterKnife.bind(this);
     }
 
