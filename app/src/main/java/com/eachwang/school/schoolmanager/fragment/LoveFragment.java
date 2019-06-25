@@ -180,7 +180,7 @@ public class LoveFragment extends BaseLazyFragment {
             helper.cardView.setCardBackgroundColor(getResources().getColor(mColorList[new Random().nextInt(3) + 0]));
         }
 
-        class ViewHolder extends BaseViewHolder {
+        public class ViewHolder extends BaseViewHolder {
 
             TextView title, content, time, name, love;
             CardView cardView;

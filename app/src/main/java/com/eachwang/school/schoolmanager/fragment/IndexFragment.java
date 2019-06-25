@@ -69,11 +69,13 @@ public class IndexFragment extends Fragment {
     private View mView;
     private List<View> mPagerList = new ArrayList<>();
     private MyPagerAdapter mMyPagerAdapter;
-    private int[] mImgList = new int[]{R.drawable.banner01, R.drawable.banner02, R.drawable.banner03, R.drawable.banner04, R.drawable.banner05};
+    private int[] mImgList = new int[]{R.drawable.banner01, R.drawable.banner02,
+            R.drawable.banner03, R.drawable.banner04, R.drawable.banner05};
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_index, container, false);
         unbinder = ButterKnife.bind(this, mView);
         return mView;
@@ -115,9 +117,11 @@ public class IndexFragment extends Fragment {
      * 获取最新的表白
      */
     private void getNew() {
-        HttpUtils.getJsonByPostBack(GET_NEW_LOVE_AND_SW_URL, new RequestParams(), new TextHttpResponseHandler() {
+        HttpUtils.getJsonByPostBack(GET_NEW_LOVE_AND_SW_URL, new RequestParams(),
+                new TextHttpResponseHandler() {
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+            public void onFailure(int statusCode, Header[] headers, String responseString,
+                                  Throwable throwable) {
                 Toast.makeText(getContext(), "最新数据获取失败, 请检查网络状态", Toast.LENGTH_SHORT).show();
                 mRefresh.setRefreshing(false);
             }
@@ -138,13 +142,17 @@ public class IndexFragment extends Fragment {
                     userBeanList.add(userBean);
                 }
                 //失物招领
-                mTxtZlTitle.setText(userBeanList.get(1).getTitle());
-                mTxtZlContent.setText(userBeanList.get(1).getContent());
-                mTxtZlTel.setText("联系电话: " + userBeanList.get(1).getTel());
-                mTxtZlAddr.setText("联系地址: " + userBeanList.get(1).getAddr());
+                if (userBeanList.get(1) != null) {
+                    mTxtZlTitle.setText(userBeanList.get(1).getTitle());
+                    mTxtZlContent.setText(userBeanList.get(1).getContent());
+                    mTxtZlTel.setText("联系电话: " + userBeanList.get(1).getTel());
+                    mTxtZlAddr.setText("联系地址: " + userBeanList.get(1).getAddr());
+                }
                 //表白墙
-                mTxtLoveTitle.setText(userBeanList.get(0).getTitle());
-                mTxtLoveContent.setText(userBeanList.get(0).getContent());
+                if (userBeanList.get(0) != null) {
+                    mTxtLoveTitle.setText(userBeanList.get(0).getTitle());
+                    mTxtLoveContent.setText(userBeanList.get(0).getContent());
+                }
                 // 开始刷新，设置当前为刷新状态
                 mRefresh.setRefreshing(false);
             }
@@ -157,7 +165,8 @@ public class IndexFragment extends Fragment {
     private void getWeather() {
         HttpUtils.getJsonByGetBack(HttpUtils.WEATHER_URL, new TextHttpResponseHandler() {
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+            public void onFailure(int statusCode, Header[] headers, String responseString,
+                                  Throwable throwable) {
                 Toast.makeText(getContext(), "天气信息获取失败, 请检查", Toast.LENGTH_SHORT).show();
                 mRefresh.setRefreshing(false);
             }
