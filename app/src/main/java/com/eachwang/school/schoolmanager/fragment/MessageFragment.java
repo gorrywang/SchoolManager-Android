@@ -165,7 +165,7 @@ public class MessageFragment extends Fragment {
             helper.cardView.setCardBackgroundColor(getResources().getColor(mColorList[new Random().nextInt(5) + 0]));
         }
 
-        class ViewHolder extends BaseViewHolder {
+        public class ViewHolder extends BaseViewHolder {
             FlowLikeView flowLikeView;
             TextView title, content, time, name, love;
             CardView cardView;
